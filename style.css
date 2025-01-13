@@ -1,37 +1,146 @@
 body {
   font-family: Arial, sans-serif;
-  margin: 20px;
-  padding: 0;
+  margin: 0;
+  padding: 20px;
+  background-color: #f9f9f9;
 }
 
 .hidden {
   display: none;
 }
 
-#login-section,
-#app-section {
+#app {
   max-width: 600px;
   margin: 0 auto;
-  padding: 20px;
+}
+
+input,
+button,
+select {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#notes-display {
+  margin-top: 20px;
+  padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 10px;
-  background: #f9f9f9;
-}
-
-button {
-  background: #4caf50;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #45a049;
+  background-color: #fff;
 }
 
 textarea {
   width: 100%;
-  height: 80px;
-  margin: 10px 0;
+  height: 100px;
+  resize: vertical;
+  padding: 0px;
+  /* 우측 마진 추가 */
+}
+
+button.delete-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 3px 8px;
+  /* 버튼 크기 축소 */
+  cursor: pointer;
+  font-size: 0.8rem;
+  max-width: 50px;
+}
+
+button.delete-btn:hover {
+  background-color: #ff3333;
+}
+
+button.edit-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 3px 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+button.edit-btn:hover {
+  background-color: #45a049;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#prayer-note-input {
+  width: 100%;
+}
+
+#filter-date-input,
+#filter-participant-select {
+  width: 45%;
+  margin-right: 10px;
+}
+
+#tabs {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  cursor: pointer;
+  border: 1px solid #ccc;
+  margin-right: 5px;
+  background-color: #f1f1f1;
+}
+
+.tab-btn.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+#participants-section,
+#prayer-notes-section,
+#view-notes-section {
+  margin-top: 20px;
+}
+
+#filter-date-input,
+#filter-participant-select {
+  width: 45%;
+  margin-right: 10px;
+}
+
+.success-message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.5s ease;
 }
