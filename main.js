@@ -209,17 +209,28 @@ async function loadNotesForDate(date, participant) {
 
   const notesForDate = data.notes[date] || {};
 
-  notesDisplay.innerHTML = Object.entries(notesForDate).map(([name, note]) => `
+  if (participant) {
+    notesDisplay.innerHTML = Object.entries(notesForDate).map(([name, note]) => `
+  ${participant && participant === name ? `
     <div class="note-item" data-name="${name}">
       <p><strong>${name}</strong><br/> <span class="note-text">${note}</span></p>
-      ${participant && participant === name ? `
+      
         <button class="edit-note-btn">수정</button>
         <button class="delete-note-btn">삭제</button>
         <textarea class="edit-note-input" placeholder="${note}" style="display: none;"></textarea>
         <button class="save-note-btn" style="display: none;">저장</button>
-      ` : ''}
+
     </div>
+  ` : ''}
   `).join("");
+  } else {
+    notesDisplay.innerHTML = Object.entries(notesForDate).map(([name, note]) => `
+      <div class="note-item" data-name="${name}">
+        <p><strong>${name}</strong><br/> <span class="note-text">${note}</span></p>
+      </div>
+    `).join("");
+  }
+
 
   // ** 기도제목 수정 **
   document.querySelectorAll(".edit-note-btn").forEach(button => {
