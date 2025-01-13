@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>기도 기록장</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="login-section">
+    <h1>기도 기록장</h1>
+    <p>비밀번호를 입력하세요:</p>
+    <input type="password" id="password-input" placeholder="비밀번호">
+    <button id="login-btn">로그인</button>
+  </div>
+
+  <div id="app-section" class="hidden">
+    <h2>기도 기록장</h2>
+    <div id="controls">
+      <input type="text" id="participant-name" placeholder="참여자 이름">
+      <button id="add-participant">참여자 추가</button>
+      <button id="view-participants">참여자 목록 보기</button>
+      <input type="date" id="date-input">
+      <button id="view-notes">날짜별 기도제목 보기</button>
+    </div>
+
+    <div id="content">
+      <ul id="participants-list"></ul>
+      <div id="notes-section" class="hidden">
+        <h3>기도제목 기록</h3>
+        <ul id="notes-list"></ul>
+        <textarea id="prayer-note" placeholder="기도제목 입력"></textarea>
+        <button id="save-note">저장</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
